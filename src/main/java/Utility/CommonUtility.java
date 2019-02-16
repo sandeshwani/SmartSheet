@@ -22,7 +22,6 @@ public class CommonUtility {
     public static int IMPLICIT_WAIT = 20;
     public static int HALF_MIN_TIMEOUT = 30;
 
-
     public CommonUtility() {
 
         try {
