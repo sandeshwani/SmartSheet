@@ -34,11 +34,12 @@ public class LoginPO extends CommonUtility {
         PageFactory.initElements(driver, this);
     }
 
+    //Fetch user account details from config.properties
     String userName = prop.getProperty("username");
     String pwd = prop.getProperty("password");
 
     /***
-     * Metod
+     * This method enter's user details and login to Smartsheet Account
      * @throws Exception
      */
     public void login() throws Exception{
@@ -52,7 +53,11 @@ public class LoginPO extends CommonUtility {
         signIn.click();
     }
 
-    public void signout() {
+    /**
+     * This method logouts user from Smartsheet
+     * @throws Exception
+     */
+    public void signout() throws Exception {
         accountMenu.click();
         signout.click();
     }

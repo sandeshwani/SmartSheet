@@ -22,7 +22,13 @@ LoginPO login = new LoginPO();
         PageFactory.initElements(driver, this);
     }
 
-
+    /**
+     * Insert specified data at specified location
+     * @param rowNum
+     * @param columnNum
+     * @param fieldData
+     * @throws Exception
+     */
      public void updateSheet(int rowNum, int columnNum, String fieldData) throws Exception{
         waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
         WebElement block = driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]"));
@@ -32,6 +38,12 @@ LoginPO login = new LoginPO();
         actions.build().perform();
     }
 
+    /**
+     * Remove data from specified row and column number
+     * @param rowNum
+     * @param columnNum
+     * @throws Exception
+     */
     public void removeDataFromSheet(int rowNum, int columnNum) throws Exception{
         waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
         WebElement block = driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]"));
@@ -41,6 +53,13 @@ LoginPO login = new LoginPO();
         actions.build().perform();
     }
 
+    /**
+     * Validate data at specified field of sheet
+     * @param rowNum
+     * @param columnNum
+     * @param actualData
+     * @throws Exception
+     */
     public void validateData(int rowNum, int columnNum, String actualData) throws Exception{
         waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
         WebElement block = (driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]" +

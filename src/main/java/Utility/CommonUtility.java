@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.fail;
 
 public class CommonUtility {
+
     public static WebDriver driver;
     protected static Properties prop;
     public static int PAGE_LOAD_TIMEOUT = 20;
@@ -36,7 +37,7 @@ public class CommonUtility {
     }
 
     /**
-     * Driver is initialized and opens specified URL
+     * This method initializes driver and opens specified URL
      */
     public static void setDriver() {
         String browser = prop.getProperty("browser");
@@ -53,7 +54,7 @@ public class CommonUtility {
     }
 
     /**
-     * Used to wait for element to load completely
+     * This method used to wait for elements
      * @param element
      * @param seconds
      * @throws Exception
@@ -65,7 +66,7 @@ public class CommonUtility {
     }
 
     /**
-     *
+     * This method checks if specified element exists or not
      * @param element
      * @param wait
      * @return
@@ -76,6 +77,10 @@ public class CommonUtility {
         return true;
     }
 
+    /**
+     * This method sets the JSON file
+     * @param jsonFile
+     */
     public void getData(String jsonFile) {
         JSONProvider.jsonFile = jsonFile;
     }

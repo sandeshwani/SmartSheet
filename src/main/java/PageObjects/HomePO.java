@@ -39,6 +39,12 @@ public class HomePO extends CommonUtility {
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * Create New Sheet with specified type and name
+     * @param type
+     * @param name
+     * @throws Exception
+     */
     public void createSheet(String type, String name) throws Exception{
         String selectType;
         waitFor(create,CommonUtility.HALF_MIN_TIMEOUT);
@@ -55,12 +61,21 @@ public class HomePO extends CommonUtility {
         waitFor(heading,CommonUtility.HALF_MIN_TIMEOUT);
     }
 
+    /**
+     * Invoke Existing sheet using sheet name
+     * @param sheetName
+     * @throws Exception
+     */
     public void invokeSheet(String sheetName) throws Exception {
         waitFor(heading,CommonUtility.HALF_MIN_TIMEOUT);
         WebElement sheet = driver.findElement(By.xpath("//div[text()='"+sheetName+"']"));
         sheet.click();
     }
 
+    /**
+     * Delete all the sheets from the home page
+     * @throws Exception
+     */
     public void deleteAllSheets() throws Exception{
         selectAll.click();
         delete.click();
