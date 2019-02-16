@@ -1,2 +1,0 @@
-# SmartSheet
-Interview Assignment
