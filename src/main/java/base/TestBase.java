@@ -1,5 +1,6 @@
-package Utility;
+package base;
 
+import utility.JSONProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,19 +15,20 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.fail;
 
-public class CommonUtility {
+public class TestBase {
 
     public static WebDriver driver;
     protected static Properties prop;
     public static int PAGE_LOAD_TIMEOUT = 20;
     public static int IMPLICIT_WAIT = 20;
     public static int HALF_MIN_TIMEOUT = 30;
+    public static String userName,password;
 
-    public CommonUtility() {
+    public TestBase() {
 
         try {
             prop = new Properties();
-            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/Properties/config.properties");
+            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
             prop.load(fis);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -40,8 +42,10 @@ public class CommonUtility {
      */
     public static void setDriver() {
         String browser = prop.getProperty("browser");
+        userName = prop.getProperty("username");
+        password = prop.getProperty("password");
         if (browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver.exe");
             driver = new ChromeDriver();
         } else {
             fail("This test only supports Chrome driver so far. Please make sure you have driver=chrome in the config.properties file. ");

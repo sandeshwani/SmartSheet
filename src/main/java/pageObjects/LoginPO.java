@@ -1,11 +1,11 @@
-package PageObjects;
+package pageObjects;
 
-import Utility.CommonUtility;
+import base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPO extends CommonUtility {
+public class LoginPO extends TestBase {
 
     @FindBy(linkText = "Log In")
     public WebElement logIn;
@@ -35,20 +35,16 @@ public class LoginPO extends CommonUtility {
     }
 
     //Fetch user account details from config.properties
-    String userName = prop.getProperty("username");
-    String pwd = prop.getProperty("password");
 
     /***
      * This method enter's user details and login to Smartsheet Account
      * @throws Exception
      */
-    public void login() throws Exception{
-        logIn.click();
-        waitFor(loginEmail,CommonUtility.HALF_MIN_TIMEOUT);
+    public void login(String userName, String pwd) throws Exception{
         loginEmail.click();
         loginEmail.sendKeys(userName);
         contin.click();
-        waitFor(password,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(password,TestBase.HALF_MIN_TIMEOUT);
         password.sendKeys(pwd);
         signIn.click();
     }

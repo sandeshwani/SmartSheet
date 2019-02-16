@@ -1,6 +1,6 @@
-package PageObjects;
+package pageObjects;
 
-import Utility.CommonUtility;
+import base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class HomePO extends CommonUtility {
+public class HomePO extends TestBase {
 
     @FindBy(xpath = "//span[text()='Create']")
     public WebElement create;
@@ -47,7 +47,7 @@ public class HomePO extends CommonUtility {
      */
     public void createSheet(String type, String name) throws Exception{
         String selectType;
-        waitFor(create,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(create,TestBase.HALF_MIN_TIMEOUT);
         create.click();
         for (int i = 0; i< sheetTypes.size(); i++){
             selectType = sheetTypes.get(i).getText();
@@ -58,7 +58,7 @@ public class HomePO extends CommonUtility {
         }
         addName.sendKeys(name);
         selectOk.click();
-        waitFor(heading,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(heading,TestBase.HALF_MIN_TIMEOUT);
     }
 
     /**
@@ -67,7 +67,7 @@ public class HomePO extends CommonUtility {
      * @throws Exception
      */
     public void invokeSheet(String sheetName) throws Exception {
-        waitFor(heading,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(heading,TestBase.HALF_MIN_TIMEOUT);
         WebElement sheet = driver.findElement(By.xpath("//div[text()='"+sheetName+"']"));
         sheet.click();
     }

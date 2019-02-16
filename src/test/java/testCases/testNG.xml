@@ -3,7 +3,7 @@
 <suite name="SmartSheet Test Suite" verbose="1">
 <test name="Add Sheet Test">
     <classes>
-        <class name="TestCases.AddSheetTest"/>
+        <class name="testCases.AddSheetTest"/>
     </classes>
 </test>
 </suite>

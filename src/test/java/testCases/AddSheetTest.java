@@ -1,14 +1,14 @@
-package TestCases;
+package testCases;
 
-import PageObjects.HomePO;
-import PageObjects.LoginPO;
-import PageObjects.SheetPO;
-import Utility.CommonUtility;
-import Utility.JSONProvider;
+import pageObjects.HomePO;
+import pageObjects.LoginPO;
+import pageObjects.SheetPO;
+import base.TestBase;
+import utility.JSONProvider;
 import org.json.simple.JSONObject;
 import org.testng.annotations.*;
 
-public class AddSheetTest extends CommonUtility {
+public class AddSheetTest extends TestBase {
 
     LoginPO login;
     HomePO homePage;
@@ -25,11 +25,11 @@ public class AddSheetTest extends CommonUtility {
     @BeforeClass(alwaysRun = true)
     public void classSetup() throws Exception {
         setDriver();
-        getData(System.getProperty("user.dir") + "/src/test/java/TestCases/AddSheet.json");
+        getData(System.getProperty("user.dir") + "/src/test/java/dataFiles/AddSheet.json");
         login = new LoginPO();
         homePage = new HomePO();
         sheetPage = new SheetPO();
-        login.login();
+        login.login(userName,password);
     }
 
     /***

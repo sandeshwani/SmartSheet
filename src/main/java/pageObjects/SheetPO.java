@@ -1,6 +1,6 @@
-package PageObjects;
+package pageObjects;
 
-import Utility.CommonUtility;
+import base.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class SheetPO extends CommonUtility {
+public class SheetPO extends TestBase {
 LoginPO login = new LoginPO();
 
     public static final String table = "//table[@class='clsGridTable']/tbody";
@@ -30,7 +30,7 @@ LoginPO login = new LoginPO();
      * @throws Exception
      */
      public void updateSheet(int rowNum, int columnNum, String fieldData) throws Exception{
-        waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(login.accountMenu,TestBase.HALF_MIN_TIMEOUT);
         WebElement block = driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]"));
         actions.moveToElement(block);
         actions.click();
@@ -45,7 +45,7 @@ LoginPO login = new LoginPO();
      * @throws Exception
      */
     public void removeDataFromSheet(int rowNum, int columnNum) throws Exception{
-        waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(login.accountMenu,TestBase.HALF_MIN_TIMEOUT);
         WebElement block = driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]"));
         actions.moveToElement(block);
         actions.doubleClick();
@@ -61,7 +61,7 @@ LoginPO login = new LoginPO();
      * @throws Exception
      */
     public void validateData(int rowNum, int columnNum, String actualData) throws Exception{
-        waitFor(login.accountMenu,CommonUtility.HALF_MIN_TIMEOUT);
+        waitFor(login.accountMenu,TestBase.HALF_MIN_TIMEOUT);
         WebElement block = (driver.findElement(By.xpath(table+"/tr["+rowNum+"]/td["+columnNum+"]" +
                 "/table/tbody/tr/td["+columnNum+"]/div")));
         if (block.getText().equalsIgnoreCase(" ")){
