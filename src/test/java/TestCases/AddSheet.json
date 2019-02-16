@@ -1,0 +1,24 @@
+{
+  "tc001_addDataToSheet" :[
+    {
+      "rowID" :  "tc001_addDataToSheet.01",
+      "description" : "Adding Data to Sheet and validating",
+      "type" : "Grid",
+      "sheetName" : "Test",
+      "fieldData" : "Hello",
+      "tableRow" : "2",
+      "tableColumn" : "4"
+    }
+  ],
+
+  "tc002_removeDataFromSheet" :[
+    {
+      "rowID" :  "tc002_removeDataFromSheet.01",
+      "description" : "Removing Data from Sheet and validating",
+      "sheetName" : "Test",
+      "fieldData" : "",
+      "tableRow" : "2",
+      "tableColumn" : "4"
+    }
+  ]
+}
