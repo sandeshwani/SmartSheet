@@ -66,12 +66,13 @@ public class AddSheetTest extends CommonUtility {
     /***
      * This test case removes data from the sheet created in test case 1 and validates
      * removed data.
+     * This testcase depends on test case 1
      * @param rowID
      * @param description
      * @param testData
      * @throws Exception
      */
-    @Test(dataProvider = "getJSON_Data", dataProviderClass = JSONProvider.class)
+    @Test(dataProvider = "getJSON_Data", dataProviderClass = JSONProvider.class, dependsOnMethods = "tc001_addDataToSheet")
     public void tc002_removeDataFromSheet(String rowID, String description, JSONObject testData) throws Exception {
         String fieldData = testData.get("fieldData").toString();
         int row = Integer.parseInt(testData.get("tableRow").toString());
