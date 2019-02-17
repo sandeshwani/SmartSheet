@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SmartSheet Test Suite" verbose="1">
-<test name="Add Sheet Test">
+    <listeners>
+        <listener class-name="utility.ExtentReporterNG" />
+    </listeners>
+
+    <test name="Add Sheet Test">
     <classes>
         <class name="testCases.AddSheetTest"/>
     </classes>
