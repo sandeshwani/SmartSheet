@@ -51,6 +51,7 @@ public class TestBase {
         chromeOptions.addArguments("headless");
         chromeOptions.addArguments("disable-gpu");
         chromeOptions.addArguments("no-sandbox");
+        chromeOptions.addArguments("disable-dev-shm-usage");
         System.out.println("3");
         userName = prop.getProperty("username");
         System.out.println("4");
@@ -61,7 +62,7 @@ public class TestBase {
             driver = new ChromeDriver(chromeOptions);
         } else if (browser.equalsIgnoreCase("chrome") && platform.equalsIgnoreCase("linux")) {
             System.out.println("6");
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver-3");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver-2");
             System.out.println("7");
             driver = new ChromeDriver(chromeOptions);
             System.out.println("8");
@@ -69,6 +70,8 @@ public class TestBase {
             fail("This test only supports Chrome driver so far. Please make sure you have driver=chrome in the config.properties file. ");
         }
         driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        System.out.println("all cookies deleted");
         driver.get(prop.getProperty("url"));
         driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
