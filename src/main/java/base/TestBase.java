@@ -44,17 +44,16 @@ public class TestBase {
     public static void setDriver() {
         String browser = prop.getProperty("browser");
         String platform = prop.getProperty("platform");
-        ChromeOptions chromeOptions = null;
+        ChromeOptions   chromeOptions =  new ChromeOptions();
+        chromeOptions.addArguments("headless");
         userName = prop.getProperty("username");
         password = prop.getProperty("password");
         if (browser.equals("chrome") && platform.equalsIgnoreCase("windows")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver.exe");
-            chromeOptions =  new ChromeOptions();
-            chromeOptions.addArguments("headless");
             driver = new ChromeDriver(chromeOptions);
         } else if (browser.equalsIgnoreCase("chrome") && platform.equalsIgnoreCase("linux")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver");
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
         } else {
             fail("This test only supports Chrome driver so far. Please make sure you have driver=chrome in the config.properties file. ");
         }
