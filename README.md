@@ -7,7 +7,7 @@ Please follow the setup instructions for my project as follows:
     1.	To clone the repo from terminal :
     2.	Open terminal.
     3.	Go to the local folder that you want to create the project in.
-    4.	Run the command : git clone https://github.com/sameerpatil2006/SmartSheetTest.git
+    4.	Run the command : git clone https://github.com/sameerpatil2006/SmartSheet.git
 2.	Intellij Setup:
     1.	Pre-requisite: If your intellij does not have “TestNG” plugin, please install it from Marketplace.
     2.	Open Intellij and Click File-> New -> From Existing Sources.
