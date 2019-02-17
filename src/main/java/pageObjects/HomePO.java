@@ -56,7 +56,7 @@ public class HomePO extends TestBase {
                 break;
             }
         }
-        addName.click();
+        //addName.click();
         addName.sendKeys(name);
         selectOk.click();
         waitFor(heading,TestBase.HALF_MIN_TIMEOUT);
