@@ -49,6 +49,8 @@ public class TestBase {
         System.out.println("2");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("headless");
+        //chromeOptions.addArguments("disable-gpu");
+        chromeOptions.addArguments("no-sandbox");
         System.out.println("3");
         userName = prop.getProperty("username");
         System.out.println("4");
