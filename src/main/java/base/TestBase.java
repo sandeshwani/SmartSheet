@@ -42,6 +42,7 @@ public class TestBase {
      * This method initializes driver and opens specified URL
      */
     public static void setDriver() throws Exception {
+        System.out.println("0");
         String browser = prop.getProperty("browser");
         System.out.println("1");
         String platform = prop.getProperty("platform");

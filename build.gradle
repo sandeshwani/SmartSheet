@@ -11,6 +11,7 @@ repositories {
 }
 
 test {
+    testLogging.showStandardStreams = true
     useTestNG() {
         suiteXmlFiles << new File("src/test/java/testCases/testNG.xml")
     }
