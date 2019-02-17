@@ -41,20 +41,27 @@ public class TestBase {
     /**
      * This method initializes driver and opens specified URL
      */
-    public static void setDriver() {
+    public static void setDriver() throws Exception {
         String browser = prop.getProperty("browser");
+        System.out.println("1");
         String platform = prop.getProperty("platform");
-        ChromeOptions chromeOptions = null;
+        System.out.println("2");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        System.out.println("3");
         userName = prop.getProperty("username");
+        System.out.println("4");
         password = prop.getProperty("password");
+        System.out.println("5");
         if (browser.equals("chrome") && platform.equalsIgnoreCase("windows")) {
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver.exe");
-            chromeOptions =  new ChromeOptions();
-            chromeOptions.addArguments("headless");
             driver = new ChromeDriver(chromeOptions);
         } else if (browser.equalsIgnoreCase("chrome") && platform.equalsIgnoreCase("linux")) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver");
-            driver = new ChromeDriver();
+            System.out.println("6");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver-3");
+            System.out.println("7");
+            driver = new ChromeDriver(chromeOptions);
+            System.out.println("8");
         } else {
             fail("This test only supports Chrome driver so far. Please make sure you have driver=chrome in the config.properties file. ");
         }
