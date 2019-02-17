@@ -62,7 +62,7 @@ public class TestBase {
             driver = new ChromeDriver(chromeOptions);
         } else if (browser.equalsIgnoreCase("chrome") && platform.equalsIgnoreCase("linux")) {
             System.out.println("6");
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver-2");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/java/resources/chromedriver-3");
             System.out.println("7");
             driver = new ChromeDriver(chromeOptions);
             System.out.println("8");
