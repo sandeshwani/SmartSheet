@@ -69,5 +69,6 @@ LoginPO login = new LoginPO();
         }
         String valueExp = block.getText().split(" ")[0];
         Assert.assertEquals(actualData,valueExp);
+        System.out.print("done");
     }
 }
